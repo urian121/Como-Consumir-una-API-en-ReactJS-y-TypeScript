@@ -37,6 +37,19 @@ p {
   justify-content: center;
   align-items: center;
 }
+.bi-heart {
+  cursor: pointer;
+  font-size: 25px;
+}
+.bi-heart-fill {
+  color: green;
+  cursor: pointer;
+  font-size: 25px;
+}
+.cat:hover {
+  transition: ease all 0.3s;
+  transform: translateY(-10px);
+}
 .card-4 {
   margin-bottom: 30px;
   background-color: #f5e8c9;

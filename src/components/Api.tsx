@@ -20,7 +20,9 @@ interface Cat {
 const MyComponent: React.FC = () => {
   const [cats, setCats] = useState<Cat[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const url_api: string = "https://dummyjson.com/users"; // La URL sigue siendo la misma, pero la estructura de datos es de gatitos
+  // Se está definiendo un tipo de objeto donde las claves son de tipo number y los valores son de tipo number
+  const [likes, setLikes] = useState<{ [key: number]: number }>({});
+  const url_api: string = "https://dummyjson.com/users";
 
   /**
    * useEffect se utiliza para manejar efectos secundarios en componentes funcionales que necesitan ejecutarse después de que el componente ha sido renderizado en el DOM.
@@ -43,6 +45,16 @@ const MyComponent: React.FC = () => {
     fetchData();
   }, [url_api]); // Agregamos url_api como dependencia para que useEffect se ejecute cada vez que cambie
 
+  /**
+   * Utilizando el operador ternario para establecer el valor de prevLikes[id] en 0 si ya existe un like para la mascota, y en 1 si no existe un like
+   */
+  const handleLike = (id: number) => {
+    setLikes((prevLikes) => ({
+      ...prevLikes,
+      [id]: prevLikes[id] ? 0 : 1,
+    }));
+  };
+
   return (
     <div className="row justify-content-md-center">
       {loading ? (
@@ -55,12 +67,20 @@ const MyComponent: React.FC = () => {
             Lista de Gatitos <hr />
           </h1>
           {cats.map((cat) => (
-            <div key={cat.id} className="col-md-3 card-4 mx-2">
+            <div key={cat.id} className="col-md-3 card-4 mx-2 cat">
+              {/* Si likes[cat.id] es mayor que 0 (es decir, si hay likes para esta mascota), 
+              entonces se aplica la clase bi-heart-fill, lo que mostrará un corazón lleno. De lo contrario,
+               se aplica la clase bi-heart, lo que mostrará un corazón vacío.*/}
+              <i
+                className={`bi ${
+                  likes[cat.id] ? "bi-heart-fill" : "bi-heart"
+                } float-end`}
+                onClick={() => handleLike(cat.id)}></i>
+
               <div className="card-content mb-5">
                 <img src={cat.image} className="gatito mb-3" />
               </div>
               <strong>{cat.firstName}</strong>
-
               <div>
                 <p>Color de Ojo: {cat.eyeColor}</p>
                 <p>Edad: {cat.age} meses</p>

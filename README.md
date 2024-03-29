@@ -13,7 +13,7 @@
 
 #### Resultado final
 
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/consumir-api-react-typescript.png)
+![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/consumir-api-react-typescript-ts.png)
 
 ### Expresiones de Gratitud 🎁
 

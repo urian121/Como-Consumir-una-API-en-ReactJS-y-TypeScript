@@ -1,0 +1,56 @@
+body {
+  background-color: #222 !important;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+.gatito {
+  width: 100%;
+  margin-top: 20px;
+}
+h1 {
+  color: #fff0f0;
+  font-size: 50px;
+  font-weight: 900;
+}
+p {
+  font-size: 18px;
+  color: #464646;
+}
+.card-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+.contenedor-carga {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Esto asegura que el contenedor ocupe toda la altura de la pantalla */
+}
+
+.loading {
+  text-align: center;
+  color: #fff0f0;
+  font-size: 50px;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-4 {
+  margin-bottom: 30px;
+  background-color: #f5e8c9;
+  position: relative;
+  border-right: 1px solid #eee;
+}
+.row {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
+
+@media (min-width: 768px) {
+  .col-md-3 {
+    flex: 0 0 auto;
+    width: 16%;
+  }
+}
